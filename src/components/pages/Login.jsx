@@ -1,10 +1,53 @@
+import { useState } from "react";
 import { FaGoogle, FaApple, FaGithub } from "react-icons/fa";
-// import LoginPage from '../../assets/loginPage.png';
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Email input handler
+  const handleEmailInput = (e) => {
+    setUserInfo((prev) => {
+      return { ...prev, email: e.target.value };
+    });
+  };
+
+  // Password input handler
+  const handlePasswordInput = (e) => {
+    setUserInfo((prev) => {
+      return { ...prev, password: e.target.value };
+    });
+  };
+
+  // Handle login submit
+  const handleSignInSubmit = (e) => {
+    e.preventDefault();
+
+    if (!userInfo.email || !userInfo.password) {
+      toast.error("Something Missing");
+    } else {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, userInfo.email, userInfo.password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          toast.success("Login Successful!");
+          console.log("Logged in user:", user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          toast.error(errorMessage);
+        });
+    }
+  };
+
   return (
     <>
+      <Toaster />
       <div className="w-full h-full bg-linear-to-br 0 flex items-center justify-center">
         {/* Container with fixed width */}
         <div className="w-full flex justify-between  rounded-lg">
@@ -33,7 +76,7 @@ const Login = () => {
                 Login
               </h3>
 
-              <form className="space-y-7">
+              <form onSubmit={handleSignInSubmit} className="space-y-7">
                 {/* Email Input */}
                 <div>
                   <label
@@ -43,11 +86,11 @@ const Login = () => {
                     Email
                   </label>
                   <input
+                    onChange={handleEmailInput}
                     type="email"
                     id="email"
                     className="mt-1 w-full bg-[#e1e4ed]  text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="name@gmail.com"
-                    required
                   />
                 </div>
 
@@ -60,11 +103,11 @@ const Login = () => {
                     Password
                   </label>
                   <input
+                    onChange={handlePasswordInput}
                     type="password"
                     id="password"
                     className="mt-1 w-full bg-[#e1e4ed]  text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="••••••••"
-                    required
                   />
                 </div>
 
@@ -90,6 +133,7 @@ const Login = () => {
                     Forgot Password?
                   </a>
                 </div>
+
                 {/* Submit Button */}
                 <button
                   type="submit"
@@ -118,10 +162,9 @@ const Login = () => {
                   <span className="text-sm font-medium">Apple</span>
                 </button>
                 <button className="flex-1 flex items-center justify-center gap-2 bg-[#1d2f53] border border-gray-600 text-white py-3 rounded-md hover:bg-[#15223d] transition-colors hover:cursor-pointer">
-                  <FaGithub  className="text-xl" />
+                  <FaGithub className="text-xl" />
                   <span className="text-sm font-medium">Github</span>
                 </button>
-                
               </div>
             </div>
           </div>
