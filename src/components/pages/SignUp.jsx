@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGoogle, FaApple } from "react-icons/fa";
 // import LoginPage from '../../assets/loginPage.png';
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  // Name
+  const handleNameInput = (e) => {
+    setUserInfo((prev) => {
+      return { ...prev, name: e.target.value };
+    });
+  };
+  // Email
+  const handleEmailInput = (e) => {
+    setUserInfo((prev) => {
+      return { ...prev, email: e.target.value };
+    });
+  };
+  // Password
+  const handlePasswordInput = (e) => {
+    setUserInfo((prev) => {
+      return { ...prev, password: e.target.value };
+    });
+  };
+
+  // console.log(userInfo);
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    if (!userInfo.name || !userInfo.email || !userInfo.password) {
+      console.log("This didn't work.");
+    }
+  };
+
   return (
     <>
-      <div className="w-full h-full  flex items-center justify-center">
+      <div className="w-full h-full  flex items-center justify-center overflow-hidden">
         {/* Container with fixed width */}
         <div className="w-full flex justify-between  rounded-lg">
           {/* Image Section */}
@@ -17,7 +50,7 @@ const SignUp = () => {
                 Create Account
               </h3>
 
-              <form className="space-y-7">
+              <form onSubmit={handleSignUpSubmit} className="space-y-7">
                 {/* Email Input */}
                 <div>
                   <label
@@ -27,11 +60,11 @@ const SignUp = () => {
                     Name
                   </label>
                   <input
+                    onChange={handleNameInput}
                     type="text"
                     id="text"
                     className="mt-1 w-full bg-[#e1e4ed]  text-neutral-800 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="Enter your name"
-                    required
                   />
                 </div>
                 <div>
@@ -42,11 +75,11 @@ const SignUp = () => {
                     Email
                   </label>
                   <input
+                    onChange={handleEmailInput}
                     type="email"
                     id="email"
                     className="mt-1 w-full bg-[#e1e4ed]  text-neutral-800 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="name@gmail.com"
-                    required
                   />
                 </div>
 
@@ -59,11 +92,11 @@ const SignUp = () => {
                     Password
                   </label>
                   <input
+                    onChange={handlePasswordInput}
                     type="password"
                     id="password"
                     className="mt-1 w-full bg-[#e1e4ed]  text-neutral-800 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="••••••••"
-                    required
                   />
                 </div>
 
@@ -83,7 +116,8 @@ const SignUp = () => {
               Welcome Back!
             </h3>
             <p className="text-center text-lg text-white w-2/3 m-auto mt-5">
-              To keep connected with us please login with your personal information
+              To keep connected with us please login with your personal
+              information
             </p>
             <Link to={"/login"}>
               <button
