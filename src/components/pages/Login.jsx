@@ -30,7 +30,6 @@ const Login = () => {
       return;
     }
 
-
     const auth = getAuth();
     signInWithEmailAndPassword(auth, userInfo.email, userInfo.password)
       .then((userCredential) => {
