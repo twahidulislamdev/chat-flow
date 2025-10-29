@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaGoogle, FaApple, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
@@ -12,16 +13,12 @@ const Login = () => {
 
   // Email input handler
   const handleEmailInput = (e) => {
-    setUserInfo((prev) => {
-      return { ...prev, email: e.target.value };
-    });
+    setUserInfo((prev) => ({ ...prev, email: e.target.value }));
   };
 
   // Password input handler
   const handlePasswordInput = (e) => {
-    setUserInfo((prev) => {
-      return { ...prev, password: e.target.value };
-    });
+    setUserInfo((prev) => ({ ...prev, password: e.target.value }));
   };
 
   // Handle login submit
@@ -30,19 +27,27 @@ const Login = () => {
 
     if (!userInfo.email || !userInfo.password) {
       toast.error("Something Missing");
-    } else {
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, userInfo.email, userInfo.password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          toast.success("Login Successful!");
-          console.log("Logged in user:", user);
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          toast.error(errorMessage);
-        });
+      return;
     }
+
+
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, userInfo.email, userInfo.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        if (user.emailVerified) {
+          toast.success("Login successful!");
+          // console.log("Logged in user:", user);
+          navigate("/dashboard");
+        } else {
+          toast.error("Please verify your email before logging in.");
+        }
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
   };
 
   return (
@@ -50,9 +55,8 @@ const Login = () => {
       <Toaster />
       <div className="w-full h-full bg-linear-to-br 0 flex items-center justify-center">
         {/* Container with fixed width */}
-        <div className="w-full flex justify-between  rounded-lg">
-
-          <div className="w-[50%]  bg-[#1d2f53] rounded-xl py-[220px] m-3 ">
+        <div className="w-full flex justify-between rounded-lg">
+          <div className="w-[50%] bg-[#1d2f53] rounded-xl py-[220px] m-3">
             <h3 className="text-center text-6xl text-white font-semibold">
               Hello, Welcome!
             </h3>
@@ -62,7 +66,7 @@ const Login = () => {
             <Link to={"/"}>
               <button
                 type="submit"
-                className="mt-5 w-[130px] bg-transparent text-white font-semibold text-lg py-2 px-2 text-center rounded-lg  border-2 border-white transition-colors hover:cursor-pointer m-auto flex justify-center"
+                className="mt-5 w-[130px] bg-transparent text-white font-semibold text-lg py-2 px-2 text-center rounded-lg border-2 border-white transition-colors hover:cursor-pointer m-auto flex justify-center"
               >
                 Sign Up
               </button>
@@ -70,7 +74,7 @@ const Login = () => {
           </div>
 
           {/* Form Section */}
-          <div className="w-[50%] h-screen  backdrop-blur-sm  rounded-lg flex justify-center m-auto px-30 py-15">
+          <div className="w-[50%] h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-30 py-15">
             <div className="w-full">
               <h3 className="text-3xl font-bold text-[#1d2f53] text-center mb-6">
                 Login
@@ -89,7 +93,7 @@ const Login = () => {
                     onChange={handleEmailInput}
                     type="email"
                     id="email"
-                    className="mt-1 w-full bg-[#e1e4ed]  text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
+                    className="mt-1 w-full bg-[#e1e4ed] text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="name@gmail.com"
                   />
                 </div>
@@ -106,7 +110,7 @@ const Login = () => {
                     onChange={handlePasswordInput}
                     type="password"
                     id="password"
-                    className="mt-1 w-full bg-[#e1e4ed]  text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
+                    className="mt-1 w-full bg-[#e1e4ed] text-neutral-600 text-base rounded-md py-3 px-3 focus:outline-none focus:ring-2 focus:ring-[#1d2f53] transition-colors placeholder-neutral-600"
                     placeholder="••••••••"
                   />
                 </div>

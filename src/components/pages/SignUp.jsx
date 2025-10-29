@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaGoogle, FaApple } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,6 +10,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
@@ -56,6 +57,7 @@ const SignUp = () => {
                   toast.success(
                     "Account Created Successfully! Please check your email for verification."
                   );
+                  navigate("/login");
                   console.log("User created:", user);
                 })
                 .catch((error) => {
