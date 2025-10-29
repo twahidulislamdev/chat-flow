@@ -51,8 +51,8 @@ const Login = () => {
       <div className="w-full h-full bg-linear-to-br 0 flex items-center justify-center">
         {/* Container with fixed width */}
         <div className="w-full flex justify-between  rounded-lg">
-          {/* Image Section */}
-          <div className="w-[48%] h-screen bg-[#1d2f53] rounded-r-[15%] py-[220px] ">
+
+          <div className="w-[50%]  bg-[#1d2f53] rounded-xl py-[220px] m-3 ">
             <h3 className="text-center text-6xl text-white font-semibold">
               Hello, Welcome!
             </h3>
@@ -70,13 +70,13 @@ const Login = () => {
           </div>
 
           {/* Form Section */}
-          <div className="w-[48%] h-screen  backdrop-blur-sm  rounded-lg flex justify-center m-auto px-25 py-15">
+          <div className="w-[50%] h-screen  backdrop-blur-sm  rounded-lg flex justify-center m-auto px-30 py-15">
             <div className="w-full">
               <h3 className="text-3xl font-bold text-[#1d2f53] text-center mb-6">
                 Login
               </h3>
 
-              <form onSubmit={handleSignInSubmit} className="space-y-7">
+              <form onSubmit={handleSignInSubmit} className="space-y-10">
                 {/* Email Input */}
                 <div>
                   <label
@@ -144,7 +144,7 @@ const Login = () => {
               </form>
 
               {/* Divider */}
-              <div className="relative my-6">
+              <div className="relative my-8">
                 <hr className="border-gray-600" />
                 <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-[#1d2f53] px-3 text-sm">
                   Or

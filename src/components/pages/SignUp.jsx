@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
 import toast, { Toaster } from "react-hot-toast";
 
 const SignUp = () => {
@@ -17,14 +22,12 @@ const SignUp = () => {
       return { ...prev, name: e.target.value };
     });
   };
-
   // Email input handler
   const handleEmailInput = (e) => {
     setUserInfo((prev) => {
       return { ...prev, email: e.target.value };
     });
   };
-
   // Password input handler
   const handlePasswordInput = (e) => {
     setUserInfo((prev) => {
@@ -35,7 +38,6 @@ const SignUp = () => {
   // Handle signup submit
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-
     if (!userInfo.name || !userInfo.email || !userInfo.password) {
       toast.error("Something Missing");
     } else {
@@ -51,11 +53,15 @@ const SignUp = () => {
               // Send email verification
               sendEmailVerification(user)
                 .then(() => {
-                  toast.success("Account Created Successfully! Please check your email for verification.");
+                  toast.success(
+                    "Account Created Successfully! Please check your email for verification."
+                  );
                   console.log("User created:", user);
                 })
                 .catch((error) => {
-                  toast.error("Error sending verification email: " + error.message);
+                  toast.error(
+                    "Error sending verification email: " + error.message
+                  );
                 });
             })
             .catch((error) => {
@@ -76,7 +82,7 @@ const SignUp = () => {
         {/* Container with fixed width */}
         <div className="w-full flex justify-between rounded-lg">
           {/* Form Section */}
-          <div className="w-[48%] h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-25 py-25">
+          <div className="w-[50%] h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-30 py-25">
             <div className="w-full">
               <h3 className="text-3xl font-bold text-[#1d2f53] text-center mb-6">
                 Create Account
@@ -146,7 +152,7 @@ const SignUp = () => {
           </div>
 
           {/* Banner part */}
-          <div className="w-[48%] h-screen bg-[#1d2f53] rounded-l-[15%] py-[220px]">
+          <div className="w-[50%] m-3 bg-[#1d2f53] rounded-xl py-[220px]">
             <h3 className="text-center text-6xl text-white font-semibold">
               Welcome Back!
             </h3>
