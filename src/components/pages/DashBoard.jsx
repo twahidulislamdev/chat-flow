@@ -16,7 +16,7 @@ const DashBoard = () => {
     <>
       <div className="w-full h-screen flex justify-between items-center bg-gray-100">
         {/* first side start   */}
-        <div className="relative w-[6%] h-full bg-[#36404a] shadow-lg py-5 ">
+        <div className="relative w-[6.5%] h-full bg-[#36404a] shadow-lg py-5 ">
           <div className="flex justify-center m-auto mb-10 rounded-full">
             {/* App logo start  */}
             <BsChatTextFill className="text-[34px] text-blue-500" />
@@ -71,7 +71,7 @@ const DashBoard = () => {
         <div className="w-[66%] h-full  py-5 bg-[#36404a] ">
           <div className="">
             <div className="flex justify-start items-center gap-x-5 px-10 pb-5 border-b-1 border-neutral-500">
-              <div className=" border-blue-500 rounded-full ">
+              <div className="border-3 border-blue-500 rounded-full ">
                 <img
                   className="w-[45px] h-[45px] rounded-full"
                   src={MyPicture}

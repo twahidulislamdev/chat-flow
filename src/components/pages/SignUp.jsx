@@ -84,7 +84,7 @@ const SignUp = () => {
         {/* Container with fixed width */}
         <div className="w-full flex justify-between rounded-lg">
           {/* Form Section */}
-          <div className="w-[50%] h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-30 py-25">
+          <div className="w-full lg:w-[50%] h-full lg:h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-5 lg:px-30 py-25">
             <div className="w-full">
               <h3 className="text-3xl font-bold text-[#1d2f53] text-center mb-6">
                 Create Account
@@ -142,6 +142,28 @@ const SignUp = () => {
                   />
                 </div>
 
+                {/* Divider */}
+                <div className="block lg:hidden relative my-8">
+                  <hr className="border-gray-600" />
+                  <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-[#1d2f53] px-3 text-sm">
+                    Or
+                  </span>
+                </div>
+
+                {/* Creat Account Part Start  */}
+                <div className="block lg:hidden mt-5 text-center">
+                  <p className="">
+                    Already have an account?{"  "}
+                    <span
+                      onClick={() => navigate("/login")}
+                      className="w-auto text-lg font-medium text-[#1d2f53] dark:text-gray-700 border-b-1 pb-0 px-2 border-gray-700 hover:cursor-pointer hover:text-[#15223d] transition-colors duration-200"
+                    >
+                      Sign In
+                    </span>
+                  </p>
+                </div>
+                {/* Creat Account Part End  */}
+
                 {/* Submit Button */}
                 <button
                   type="submit"
@@ -154,7 +176,7 @@ const SignUp = () => {
           </div>
 
           {/* Banner part */}
-          <div className="w-[50%] m-3 bg-[#1d2f53] rounded-xl py-[220px]">
+          <div className="hidden lg:block w-[50%] m-3 bg-[#1d2f53] rounded-xl py-[220px]">
             <h3 className="text-center text-6xl text-white font-semibold">
               Welcome Back!
             </h3>

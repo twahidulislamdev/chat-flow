@@ -55,7 +55,7 @@ const Login = () => {
       <div className="w-full h-full bg-linear-to-br 0 flex items-center justify-center">
         {/* Container with fixed width */}
         <div className="w-full flex justify-between rounded-lg">
-          <div className="w-[50%] bg-[#1d2f53] rounded-xl py-[220px] m-3">
+          <div className="hidden lg:block w-[50%] bg-[#1d2f53] rounded-xl py-[220px] m-3">
             <h3 className="text-center text-6xl text-white font-semibold">
               Hello, Welcome!
             </h3>
@@ -73,7 +73,7 @@ const Login = () => {
           </div>
 
           {/* Form Section */}
-          <div className="w-[50%] h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-30 py-15">
+          <div className="w-full lg:w-[50%] h-full lg:h-screen backdrop-blur-sm rounded-lg flex justify-center m-auto px-5 lg:px-30 py-15">
             <div className="w-full">
               <h3 className="text-3xl font-bold text-[#1d2f53] text-center mb-6">
                 Login
@@ -146,6 +146,20 @@ const Login = () => {
                 </button>
               </form>
 
+              {/* Creat Account Part Start  */}
+              <div className="block lg:hidden mt-5 text-center">
+                <p className="">
+                  No account yet?{"  "}
+                  <span
+                    onClick={() => navigate("/")}
+                    className="w-auto text-lg font-medium text-[#1d2f53] dark:text-gray-700 border-b-1 pb-0 px-2 border-gray-700 hover:cursor-pointer hover:text-[#15223d] transition-colors duration-200"
+                  >
+                    Create Account
+                  </span>
+                </p>
+              </div>
+              {/* Creat Account Part End  */}
+
               {/* Divider */}
               <div className="relative my-8">
                 <hr className="border-gray-600" />
@@ -163,10 +177,6 @@ const Login = () => {
                 <button className="flex-1 flex items-center justify-center gap-2 bg-[#1d2f53] border border-gray-600 text-white py-3 rounded-md hover:bg-[#15223d] transition-colors hover:cursor-pointer">
                   <FaApple className="text-xl" />
                   <span className="text-sm font-medium">Apple</span>
-                </button>
-                <button className="flex-1 flex items-center justify-center gap-2 bg-[#1d2f53] border border-gray-600 text-white py-3 rounded-md hover:bg-[#15223d] transition-colors hover:cursor-pointer">
-                  <FaGithub className="text-xl" />
-                  <span className="text-sm font-medium">Github</span>
                 </button>
               </div>
             </div>
