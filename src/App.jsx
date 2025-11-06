@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/pages/Login";
 import SignUp from "./components/pages/SignUp";
 import MainLayout from "./components/layouts/MainLayout";
-import AuthLayout from "./components/layouts/AuthLayout";
 import DashBoard from "./components/pages/DashBoard";
 import Chatting from "./components/pages/Chatting";
 import Contact from "./components/pages/Contact";
