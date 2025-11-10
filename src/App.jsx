@@ -19,6 +19,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/groups" element={<Groups />} />
           </Route>
+          <Route path="/" element={<MainLayout />}>
+            <Route path="/chatting" element={<Chatting />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/groups" element={<Groups />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
