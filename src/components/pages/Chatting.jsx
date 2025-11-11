@@ -1,15 +1,8 @@
-import React from "react";
 import MyPicture from "../../assets/My Picture.jpg";
-import { FaHome } from "react-icons/fa";
-import { BsChatTextFill } from "react-icons/bs";
 import {
-  IoChatboxEllipsesSharp,
-  IoPersonSharp,
   IoSettings,
   IoSearch,
 } from "react-icons/io5";
-import { MdLightMode } from "react-icons/md";
-import { HiMiniUserGroup } from "react-icons/hi2";
 
 const Chatting = () => {
   return (

@@ -38,7 +38,7 @@ const Login = () => {
         if (user.emailVerified) {
           toast.success("Login successful!");
           // console.log("Logged in user:", user);
-          navigate("/dashboard");
+          navigate("/chatting");
         } else {
           toast.error("Please verify your email before logging in.");
         }
