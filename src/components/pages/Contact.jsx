@@ -7,7 +7,7 @@ const Contact = () => {
         {/* Left Sidebar - Chat List */}
         <div className="w-[30%] h-full bg-[#303841] border-r border-gray-600">
           <div className="p-5">
-            <h3 className="text-3xl font-bold text-white mb-5">Friends</h3>
+            <h3 className="text-3xl font-bold text-white mb-5">Contact</h3>
 
             {/* Search Box */}
             <div className="relative w-full rounded-lg mb-5">
