@@ -3,9 +3,9 @@ import { IoSettings, IoSearch } from "react-icons/io5";
 const Contact = () => {
   return (
     <>
-      <div className="w-full h-full flex bg-neutral-100">
+      <div className="w-full h-full flex bg-neutral-200">
         {/* Left Sidebar - Chat List */}
-        <div className="w-[30%] h-full bg-[#303841] border-r border-gray-600">
+        <div className="w-[30%] h-full bg-[#303841] border-r border-neutral-500">
           <div className="p-5">
             <h3 className="text-4xl font-bold text-white mb-5">Contact</h3>
 
