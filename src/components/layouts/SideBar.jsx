@@ -70,7 +70,7 @@ const SideBar = () => {
 
       {/* User Profile */}
       <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2">
-        <button className="border-2 border-blue-500 rounded-full p-0.5 hover:border-blue-400 transition-colors hover:cursor-pointer">
+        <button className="border-2 border-blue-500 rounded-full p-0.5 hover:border-blue-500 transition-colors hover:cursor-pointer">
           <img className="w-9 h-9 rounded-full" src={MyPicture} alt="Profile" />
         </button>
       </div>
