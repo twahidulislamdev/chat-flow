@@ -69,7 +69,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center gap-x-4">
-              <button className="text-gray-400 hover:text-white transition-colors">
+              <button className="text-neutral-400 hover:text-white transition-colors">
                 <IoSettings className="text-xl" />
               </button>
             </div>
