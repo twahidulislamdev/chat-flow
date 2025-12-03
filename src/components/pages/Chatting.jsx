@@ -1,8 +1,5 @@
 import MyPicture from "../../assets/My Picture.jpg";
-import {
-  IoSettings,
-  IoSearch,
-} from "react-icons/io5";
+import { IoSettings, IoSearch } from "react-icons/io5";
 
 const Chatting = () => {
   return (
