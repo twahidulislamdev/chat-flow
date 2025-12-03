@@ -3,21 +3,21 @@ import { IoSettings, IoSearch } from "react-icons/io5";
 
 const Chatting = () => {
   return (
-    <div className="w-full h-full flex bg-gray-100">
+    <div className="w-full h-full flex bg-neutral-100">
       {/* Left Sidebar - Chat List */}
-      <div className="w-[30%] h-full bg-[#303841] border-r border-gray-600">
+      <div className="w-[30%] h-full bg-[#303841] border-r border-neutral-500">
         <div className="p-5">
           <h3 className="text-3xl font-bold text-white mb-5">Chat</h3>
 
           {/* Search Box */}
           <div className="relative w-full rounded-lg mb-5">
             <input
-              className="px-3 py-3 w-full bg-[#36404a] placeholder-gray-400 text-white text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-3 w-full bg-[#36404a] placeholder-neutral-400 text-white text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="text"
               placeholder="Search User"
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <IoSearch className="text-xl text-gray-400" />
+              <IoSearch className="text-xl text-neutral-400" />
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const Chatting = () => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-gray-400 text-xs">12:30 PM</span>
+                  <span className="text-neutral-400 text-xs">12:30 PM</span>
                   <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-1 ml-auto">
                     <span className="text-white text-xs">2</span>
                   </div>
